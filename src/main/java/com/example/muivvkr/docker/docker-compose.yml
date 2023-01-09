@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres
+    container_name: vkr-muiv
+    restart: always
+    networks:
+      - mynetwork
+    ports:
+    - 5432:5432
+    volumes:
+      - postgres:/data/tmp
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: admin
+      PGDATA: /data/ttt
+
+volumes:
+  pgdata:
+  postgres:
+  pgadmin:
+
+networks:
+  mynetwork:
+    driver: bridge
