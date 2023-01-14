@@ -1,11 +1,51 @@
 <!DOCTYPE HTML>
  <head>
-    <title>ВКР МУИВ Триппель Анастасия</title>
+    <title>Стартовая страница - ВКР МУИВ Триппель Анастасия</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        form {
+            display: inline-block;
+        }
+    </style>
 </head>
-<body>
+
 <div>
-    Hello, {{name}} !!!
+    <div style="float: right">
+        <form action="/logout" method="post">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </div>
 </div>
-</body>
-</html>
+
+<br><br>
+<h1 style="text-align: center; margin-top: 20px; margin-bottom: 20px;">Приветствую вас в приложении для регистрации заявок на закупку препаратов!</h1>
+<br><br>
+<form id="link-user" action="/users" target="_self">
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+    <button>Перейти на страницу<br>Добавление Пользователя</button>
+</form>
+<form id="link-org" action="/organization" target="_self">
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+    <button>Перейти на страницу<br>Добавление Организаций</button>
+</form>
+
+<br><br>
+<form id="link-order" action="/items" target="_self">
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+    <button>Перейти на страницу<br>Создание Заказа</button>
+</form>
+<form id="link-history" action="/orders" target="_self">
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+    <button>Перейти на страницу<br>История Заказа</button>
+</form>
+
+<script>
+    if (!{{isAdmin}}) {
+        document.getElementById("link-user").style.visibility = "hidden"
+        document.getElementById("link-org").style.visibility = "hidden"
+    } else {
+        document.getElementById("link-order").style.visibility = "hidden"
+        document.getElementById("link-history").style.visibility = "hidden"
+    }
+</script>

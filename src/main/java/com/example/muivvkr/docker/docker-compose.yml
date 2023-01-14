@@ -3,18 +3,29 @@ version: '3.9'
 services:
   postgres:
     image: postgres
-    container_name: vkr-muiv
+    container_name: vkr-muiv-postgres
     restart: always
     networks:
       - mynetwork
     ports:
     - 5432:5432
     volumes:
-      - postgres:/data/tmp
+      - postgres:/data/db
     environment:
       POSTGRES_PASSWORD: admin
       POSTGRES_USER: admin
-      PGDATA: /data/ttt
+      PGDATA: /data/db
+
+  java:
+    image: tripp/vkr
+    container_name: vkr-muiv-java
+    restart: always
+    platform: linux/amd64
+    networks:
+      - mynetwork
+    ports:
+      - 8080:8080
+
 
 volumes:
   pgdata:

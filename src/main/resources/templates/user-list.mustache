@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+ <head>
+    <title>ВКР МУИВ Триппель Анастасия</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        table {
+            width: 80%;
+            margin: 30px auto;
+            border-collapse: collapse;
+        }
+        thead {
+            background-color: #1c87c9;
+            color: #ffffff;
+        }
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #666666;
+        }
+        form {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+<div>
+    <div style="float: left">
+        <form id="home" action="/" target="_self">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+            <button>Вернуться на<br>Стартовую страницу</button>
+        </form>
+    </div>
+    <div style="float: right">
+        <form action="/logout" method="post">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </div>
+</div>
+<br><br>
+<h1 style="text-align: center; margin-top: 20px; margin-bottom: 20px;">Добавление пользователя</h1>
+<div>
+    <form method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <input type="text" name="username" placeholder="введите имя">
+        <input type="text" name="password" placeholder="введите пароль">
+        <button type="submit">Добавить</button>
+    </form>
+</div>
+<h2 style="text-align: center; margin-top: 20px; margin-bottom: 20px;">Список пользователей</h2>
+<table>
+    <thead>
+    <tr>
+        <th>IDs</th>
+        <th>Имя Пользователя</th>
+        <th>Активность пользоателя</th>
+        <th>Роль</th>
+    </tr>
+    </thead>
+    {{#users}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{username}}</td>
+            <td>{{active}}</td>
+            <td>{{roles}}</td>
+        </tr>
+    {{/users}}
+</table>
+</body>

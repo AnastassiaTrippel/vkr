@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+ <head>
+    <title>ВКР МУИВ Триппель Анастасия</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        table {
+            width: 85%;
+            margin: 30px auto;
+            border-collapse: collapse;
+        }
+        thead {
+            background-color: #2c87c8;
+            color: #ffffff;
+        }
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #667666;
+        }
+        form {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div style="float: left">
+        <form id="home" action="/" target="_self">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+            <button>Вернуться на<br>Стартовую страницу</button>
+        </form>
+    </div>
+    <div style="float: right">
+        <form action="/logout" method="post">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </div>
+</div>
+<h1 style="text-align: center; margin-top: 20px; margin-bottom: 20px;">Добавление Организации</h1>
+<div>
+    <form method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <input type="text" name="title" placeholder="Название Организации">
+        <input type="text" name="address" placeholder="Адрес">
+        <input type="text" name="url" placeholder="Ссылка для получения списка товаров">
+        <input type="text" name="dispatch" placeholder="Ссылка для отправки заказа">
+        <button type="submit">Добавить</button>
+    </form>
+</div>
+<h2 style="text-align: center; margin-top: 20px; margin-bottom: 20px;">Список Организаций</h2>
+<table>
+    <thead>
+    <tr>
+        <th>IDs</th>
+        <th>Название Организации</th>
+        <th>Адрес</th>
+        <th>Ссылка для получения списка товаров</th>
+        <th>Ссылка для отправки заказа</th>
+    </tr>
+    </thead>
+    {{#organizations}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{title}}</td>
+            <td>{{address}}</td>
+            <td>{{url}}</td>
+            <td>{{dispatch}}</td>
+        </tr>
+    {{/organizations}}
+</table>
+</body>
