@@ -68,7 +68,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<image>
-						<name>docker.io/tripp/${project.artifactId}:v1</name>
+						<name>docker.io/tripp/${project.artifactId}:v2</name>
 					</image>
 				</configuration>
 			</plugin>

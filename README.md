@@ -3,6 +3,7 @@
 ## Software:
 ```
 * Java 11
+* Spring Boot 2
 * Maven 4.0
 * Docker
 ```
@@ -42,6 +43,7 @@ docker-compose up -d
 cd ./src/main/java/com/example/muivvkr/docker/
 docker-compose down
 ```
+## Приложение доступно по адресу:
 
 
 ### Developer:

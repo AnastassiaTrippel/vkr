@@ -17,7 +17,7 @@ services:
       PGDATA: /data/db
 
   java:
-    image: tripp/muiv-vkr:v1
+    image: tripp/muiv-vkr:v2
     container_name: vkr-muiv-java
     restart: always
     platform: linux/amd64
@@ -28,7 +28,7 @@ services:
 
 
 volumes:
-  pgdata:
+  data:
   postgres:
   pgadmin:
 
