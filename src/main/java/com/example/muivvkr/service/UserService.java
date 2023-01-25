@@ -52,4 +52,8 @@ public class UserService {
 
         return currentUserName;
     }
+
+    public UserEntity findByUsername(String currentUserName) {
+        return userRepository.findByUsername(currentUserName);
+    }
 }

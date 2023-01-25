@@ -195,7 +195,7 @@
         <tr>
             <td>{{id}}</td>
             <td>{{cost}}</td>
-            <td>{{username}}</td>
+            <td>{{userEntity.username}}</td>
         </tr>
     {{/orders}}
 </table>
@@ -218,14 +218,12 @@
                         <tr>
                             <th>ID</th>
                             <th>Стоимость заказа</th>
-                            <th>ФИО сделавшего заказ</th>
                         </tr>
                         </thead>
                         {{#orders}}
                             <tr>
                                 <td>{{id}}</td>
                                 <td>{{cost}}</td>
-                                <td>{{username}}</td>
                             </tr>
                         {{/orders}}
                     </table>
