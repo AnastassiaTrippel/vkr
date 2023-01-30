@@ -1,21 +1,15 @@
 package com.example.muivvkr.controller;
 
+import com.example.muivvkr.entity.ItemEntity;
 import com.example.muivvkr.entity.OrderEntity;
-import com.example.muivvkr.entity.OrganizationEntity;
 import com.example.muivvkr.service.OrderService;
-import com.example.muivvkr.service.OrganizationService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/orders")
@@ -30,5 +24,15 @@ public class OrderController {
         List<OrderEntity> orders = orderService.getOrders();
         model.addAttribute("orders", orders);
         return "orders";
+    }
+
+
+    @PostMapping
+    public String getOrderHistory(@RequestParam Integer id, Model model) {
+        List<ItemEntity> items = orderService.getHistory(id);
+        model.addAttribute("items", items);
+        model.addAttribute("id", id);
+
+        return "history-order";
     }
 }

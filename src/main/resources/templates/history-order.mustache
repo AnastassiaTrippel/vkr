@@ -45,38 +45,28 @@
     </div>
 </div>
 
-<input type="hidden" name="_csrf" value="{{_csrf.token}}" />
-<h1 style="text-align: center; margin-top: 20px; margin-bottom: 20px;">Список Товаров</h1>
-<form method="post">
-    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+<h1 style="text-align: center; margin-top: 20px; margin-bottom: 20px;">История заказа № {{id}}</h1>
     <table>
         <thead>
         <tr>
-            <th>Номер товара</th>
             <th>Количество</th>
             <th>Название</th>
             <th>Цена</th>
             <th>Изображение</th>
+            <th>Название поставщика</th>
         </tr>
         </thead>
         {{#items}}
             <tr>
                 <td>
-                    <label>
-                        <input type="checkbox" id="click" name="checkboxes" value="{{numberItem}}">
-                        {{numberItem}}
-                    </label>
-                </td>
-                <td>
-                    <input type="text" name="quantity" placeholder="Укаэите количество">
+                    {{quantity}}
                 </td>
                 <td>{{title}}</td>
                 <td>{{cost}} &#8381;</td>
                 <td><img src="{{urlPhoto}}" alt="{{title}}" width="250" height="200"></td>
+                <td>{{organization.title}}</td>
             </tr>
         {{/items}}
     </table>
-    <button type="submit">Добавить</button>
-</form>
 </body>
 

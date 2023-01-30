@@ -14,10 +14,10 @@ services:
     environment:
       POSTGRES_PASSWORD: admin
       POSTGRES_USER: admin
-      PGDATA: /data/db
+      POSTGRES_DB: postgres
 
   java:
-    image: tripp/muiv-vkr:v2
+    image: tripp/muiv-vkr:v8
     container_name: vkr-muiv-java
     restart: always
     platform: linux/amd64
