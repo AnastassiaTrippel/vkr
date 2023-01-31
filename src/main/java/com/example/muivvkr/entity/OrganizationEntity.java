@@ -18,6 +18,6 @@ public class OrganizationEntity {
     private String url;
     private String dispatch;
 
-    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, fetch = FetchType.LAZY )
+    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, fetch = FetchType.EAGER )
     private List<ItemEntity> items;
 }
